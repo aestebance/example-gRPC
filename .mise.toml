@@ -1,0 +1,4 @@
+[tools]
+github-cli = "latest"
+python = '3.11'
+[plugins]
