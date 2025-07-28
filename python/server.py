@@ -13,9 +13,9 @@ class ServerCalculator(calculator_pb2_grpc.CalculatorServicer):
         return calculator_pb2.SubtractResponse(result=result)
 
 def serve():
-    with open('certs/server.key', 'rb') as f:
+    with open('../certs/server.key', 'rb') as f:
         private_key = f.read()
-    with open('certs/server.crt', 'rb') as f:
+    with open('../certs/server.crt', 'rb') as f:
         certificate_chain = f.read()
     credentials = grpc.ssl_server_credentials([(private_key, certificate_chain)])
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))

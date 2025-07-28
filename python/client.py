@@ -3,7 +3,7 @@ import calculator_pb2
 import calculator_pb2_grpc
 
 def run():
-    with open('certs/server.crt', 'rb') as f:
+    with open('../certs/server.crt', 'rb') as f:
         trusted_certs = f.read()
     
     credentials = grpc.ssl_channel_credentials(root_certificates=trusted_certs)

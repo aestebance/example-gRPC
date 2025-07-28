@@ -1,15 +1,41 @@
 # Example of Google RPC (https://grpc.io/)
-## Use
+
+## Creating credentials
+
+openssl genrsa -out server.key 2048
+
+openssl req -x509 -new -nodes -key server.key -sha256 -days 365 -out server.crt -config openssl.cnf
+
+## Use for Python
 pip install -r requirements.txt
 
 python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. calculator.proto
 
-mkdir certs && cd certs
+python server.py
 
-openssl genrsa -out server.key 2048
+python client.py
 
-openssl req -new -x509 -key server.key -out server.crt -days 365 -subj "/CN=localhost"
+## Use for Go
+cd go/calculatorpb
 
-python servidor.py
+protoc --go_out=. --go_opt=paths=source_relative --go-grpc_out=. --go-grpc_opt=paths=source_relative calculator.proto
 
-python cliente.py
+cd ..
+
+go get google.golang.org/grpc
+
+go get google.golang.org/grpc/credentials/insecure
+
+cd client_go
+
+go build
+
+cd ..
+cd server_go
+
+go build
+
+cd ..
+
+./server_go/server_go &
+./client_go/client_go

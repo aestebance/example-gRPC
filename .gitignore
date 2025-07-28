@@ -24,6 +24,9 @@ __pycache__
 *.pyenv
 *.pytest_cache
 *.tox
-certs
 calculator_pb2.py
 calculator_pb2_grpc.py
+calculator_grpc.pb.go
+calculator.pb.go
+server.key
+server.crt

@@ -1,4 +1,10 @@
 [tools]
+"go:google.golang.org/protobuf/cmd/protoc-gen-go" = "latest"
+"go:google.golang.org/grpc/cmd/protoc-gen-go-grpc" = "latest"
 github-cli = "latest"
 python = '3.11'
+go = "1.24"
+protobuf = "latest"
+java = "21.0.2"
+maven = "3.9.11"
 [plugins]
