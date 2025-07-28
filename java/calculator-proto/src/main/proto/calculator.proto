@@ -1,5 +1,8 @@
 syntax = "proto3";
 
+option java_package = "com.example.calculator";
+option java_outer_classname = "CalculatorProto";
+
 service Calculator {
   rpc Add (AddRequest) returns (AddResponse);
   rpc Subtract (SubtractRequest) returns (SubtractResponse);

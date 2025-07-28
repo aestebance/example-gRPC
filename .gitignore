@@ -30,3 +30,5 @@ calculator_grpc.pb.go
 calculator.pb.go
 server.key
 server.crt
+target/
+dependency-reduced-pom.xml
