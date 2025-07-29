@@ -39,3 +39,18 @@ cd ..
 
 ./server_go/server_go &
 ./client_go/client_go
+
+
+## CPP
+git clone --recurse-submodules -b v1.64.0 https://github.com/grpc/grpc
+cd grpc
+mkdir -p cmake/build
+cd cmake/build
+cmake ../.. -DCMAKE_INSTALL_PREFIX=/usr/local -DgRPC_INSTALL=ON -DgRPC_BUILD_TESTS=OFF
+make -j$(nproc)
+sudo make install
+mkdir build && cd build
+protoc -I .. --grpc_out=. --plugin=protoc-gen-grpc=`which grpc_cpp_plugin` ../calculator.proto
+protoc -I .. --cpp_out=. ../calculator.proto
+cmake ..
+ make -j$(nproc)

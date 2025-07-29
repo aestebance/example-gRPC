@@ -8,4 +8,7 @@ protobuf = "latest"
 java = "21.0.2"
 maven = "3.9.11"
 node = "20.19.4"
+cmake = "latest"
+ninja = "latest"
+bazel = "latest"
 [plugins]
