@@ -33,3 +33,4 @@ server.crt
 target/
 dependency-reduced-pom.xml
 *.js
+node_modules/
